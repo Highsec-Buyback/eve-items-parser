@@ -1,0 +1,41 @@
+{
+  "name": "eve-items-parser",
+  "version": "0.0.1",
+  "description": "A library to parse text from various locations in EVE Online into a machine readable list of items. Based on evepraisal's code.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "postbuild": "cp package*.json dist && (cd dist && npm ci --omit=dev --ignore-scripts)",
+    "prepublish": "npm run build",
+    "test": "vitest",
+    "test:watch": "vitest watch"
+  },
+  "keywords": [
+    "EVE Online"
+  ],
+  "author": "bahrmichael",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.12.8",
+    "ts-node": "^10.9.2",
+    "typescript": "5.4.5",
+    "vitest": "^1.5.3"
+  },
+  "vitest": {
+    "globals": true,
+    "environment": "node",
+    "test": {
+      "include": [
+        "**/*.test.ts"
+      ]
+    }
+  },
+  "dependencies": {
+    "lodash.uniqby": "^4.7.0",
+    "number-parsing": "^0.3.2"
+  }
+}
