@@ -1,4 +1,4 @@
-import { uniqBy } from 'lodash.uniqby';
+import { uniqBy } from 'lodash';
 import {Item, Parser} from "./parser-interface";
 import {bigNumberRegex, CleanTypeName, regexParseLines} from "./utils";
 import {parseNumber} from "./number-parsing";
