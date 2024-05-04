@@ -1,5 +1,5 @@
 {
-  "name": "eve-items-parser",
+  "name": "eve-items-parser-temp",
   "version": "0.0.3",
   "description": "A library to parse text from various locations in EVE Online into a machine readable list of items. Based on evepraisal's code.",
   "main": "./dist/index.js",
