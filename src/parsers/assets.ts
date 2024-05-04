@@ -37,8 +37,8 @@ export class Assets implements Parser {
                 size: match[5] as 'XLarge' | 'Large' | 'Medium' | 'Small',
                 slot: match[6] as 'High' | 'Medium' | 'Low' | 'Rigs' | string,
                 volume: parseNumber(match[7]) || 0,
-                metaLevel: match[9],
-                techLevel: match[10],
+                metaLevel: match[9] === "None" ? undefined : match[9],
+                techLevel: match[10] === "None" ? undefined : match[10],
                 priceEstimate: parseNumber(match[11]),
             });
         }
@@ -55,8 +55,8 @@ const regexPattern = [
     `(?:\\t(XLarge|Large|Medium|Small|))?`,     // Size
     `(?:\\t(High|Medium|Low|Rigs|[\\d ]*))?`,   // Slot
     `(?:\\t(${bigNumberRegex}*) (m3|м\\^3))?`,   // Volume
-    `(?:\\t([\\d]+|))?`,                        // Meta level
-    `(?:\\t([\\d]+|))?`,                        // Tech level
+    `(?:\\t([\\d]+|None|))?`,                        // Meta level
+    `(?:\\t([\\d]+|None|))?`,                        // Tech level
     `(?:\\t(${bigNumberRegex}*) ISK)?$`          // Price estimate
 ].join("");
 

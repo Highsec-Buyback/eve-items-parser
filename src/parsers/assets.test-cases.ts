@@ -119,6 +119,39 @@ const assetsTestCases = [
         },
         expectedRest: {},
         runForAll: false
+    },
+    {
+        description: "Without quantity",
+        input: "125mm Prototype Gauss Gun\t\tHybrid Weapon\tModule\t4\t1\t376.718,32 ISK",
+        expected: {
+            items: [
+                { name: "125mm Prototype Gauss Gun", quantity: 1, group: "Hybrid Weapon", volume: 0, priceEstimate: 376718.32 }
+            ]
+        },
+        expectedRest: {},
+        runForAll: false
+    },
+    {
+        description: "With None as tech level",
+        input: "Agency 'Pyrolancea' DB3 Dose I\t1\tBooster\tImplant\t\tNone\t3.964.531,73 ISK",
+        expected: {
+            items: [
+                { name: "Agency 'Pyrolancea' DB3 Dose I", quantity: 1, group: "Booster", volume: 0, priceEstimate: 3964531.73 }
+            ]
+        },
+        expectedRest: {},
+        runForAll: false
+    },
+    {
+        description: "With None as meta level",
+        input: "Agency 'Pyrolancea' DB3 Dose I\t1\tBooster\tImplant\tNone\t\t3.964.531,73 ISK",
+        expected: {
+            items: [
+                { name: "Agency 'Pyrolancea' DB3 Dose I", quantity: 1, group: "Booster", volume: 0, priceEstimate: 3964531.73 }
+            ]
+        },
+        expectedRest: {},
+        runForAll: false
     }
 ];
 export { assetsTestCases };
