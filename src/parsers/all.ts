@@ -31,12 +31,11 @@ export class AllParser implements Parser {
             let result;
             [result, left] = parser.parse(left);
 
-            // Only add to results if non-null and has lines
             if (result?.items.length) {
-                this.items.push(...result.items);
+                this.items.push(...result.items.filter(i => i.name));
             }
         }
 
-        return [this, left]; // assuming `left` needs to be a string output, adjust if it's meant to be different
+        return [this, left];
     }
 }

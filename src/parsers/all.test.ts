@@ -10,6 +10,19 @@ import {viewContentsTestCases} from "./view-contents.test-cases";
 
 describe("All", () => {
 
+    it('should filter out empty newlines', () => {
+        const input = StringToInput("Atron\n\nTayra\n\n");
+        const [result, rest] = new AllParser().parse(input);
+        expect(result.items).toMatchObject([{
+            name: "Atron",
+            quantity: 1,
+        }, {
+            name: "Tayra",
+            quantity: 1,
+        }])
+        expect(rest).toEqual([]);
+    })
+
     describe("Assets", () => {
         const cases = assetsTestCases.filter(c => c.runForAll);
         it.each(cases)("$description", ({input, expected, expectedRest}) => {
